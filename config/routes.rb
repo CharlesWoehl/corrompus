@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  resources :personnalities do
+    resources :bookings, only: [:new, :create]
+  end
+  resources :bookings
   devise_for :users
   root to: "pages#home"
   # root to: "home#index"
