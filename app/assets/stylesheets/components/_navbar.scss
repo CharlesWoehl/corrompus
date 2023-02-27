@@ -10,3 +10,22 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+.navbar-nav .dropdown-menu {
+  position: absolute;
+  border-radius: 10px;
+  margin-top: 0px;
+  padding: 10px 0;
+  margin-right: 25px;
+}
+
+.padding-item {
+  padding: 5px 90px 5px 20px;
+}
+
+.border-bottom {
+  border-bottom:1px solid #C9C9C9;
+}
+
+.item-bold {
+  font-weight: bold;
+}
