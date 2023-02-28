@@ -1,0 +1,19 @@
+.personnality-infos{
+  opacity: 0.7;
+  transition-duration:0.3s;
+  color: #333;
+}
+.personnality-infos:hover{
+  opacity: 1;
+  transition-duration:0.5s;
+  color:#FF0057;
+
+  cursor: pointer;
+}
+.icone-list-pers {
+  font-size: 30px;
+}
+
+.name-list-pers {
+  font-size: 10px;
+}

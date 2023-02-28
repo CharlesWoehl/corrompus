@@ -27,7 +27,9 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 gem "devise"
-gem 'simple-form-datepicker', '~> 0.1.3'
+
+gem "pundit"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
