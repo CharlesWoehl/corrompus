@@ -19,6 +19,7 @@
               <%= link_to "My reservations", bookings_path, class: "dropdown-item padding-item item-bold" %>
               <%= link_to "Add me on personnality", new_personnality_path, class: "dropdown-item padding-item" %>
               <%= link_to "Edit my account user", edit_user_registration_path, class: "dropdown-item padding-item" %>
+              <%= link_to "Edit my personnality", edit_personnality_path(current_user), class: "dropdown-item padding-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item padding-item border-bottom" %>
               <%= link_to "View the personnalities", personnalities_path, class: "dropdown-item padding-item" %>
               <%= link_to "View my profile", personnality_path(current_user), class: "dropdown-item padding-item" %>
