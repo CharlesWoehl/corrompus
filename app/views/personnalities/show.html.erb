@@ -1,29 +1,32 @@
-<div class="container py-4">
-  <div class="header-content">
-    <div class="profile-avatar">
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class:"avatar-large", alt:"Le Wagon" , width: 200 %>
-      <h1><%= @personnality.skills %></h1>
-      <h2 class="card-trip-pricing d-flex"><i class="fa-solid fa-star rose px-1"></i> <%= @personnality.rating %></h2>
+<div class="sous-container">
+  <div class="personnality-details">
+    <div class="personnality-header">
+      <div class="images">
+        <%= image_tag "img-test.jpg", alt:"Le Wagon" , width: 200 %>
+        <a class="btn btn-ghost" href="#"><i class="fa-solid fa-fire"></i> Super Hot</a>
+      </div>
+      <div class="skills">
+        <% @personnality.skills.each do |skill| %>
+          <h3><%= skill.name.capitalize %></h3>
+        <% end %>
+        <p class="card-trip-pricing d-flex"></p>
+      </div>
+    </div>
+
+    <div class="personnality-content">
+      <%= render "list-skills" %>
+      <h2>Mon experience :</h2>
+      <p><%= @personnality.description %>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi perspiciatis qui error labore quae facilis quasi veniam, perferendis, odit delectus, commodi optio at culpa quam architecto totam provident esse quia.Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi perspiciatis qui error labore quae facilis quasi veniam, perferendis, odit delectus, commodi optio at culpa quam architecto totam provident esse quia.</p>
     </div>
   </div>
 
-  <div class="show-content d-flex">
 
-    <div class="personnality-description-content d-flex">
-      <div class="personnality-description">
-        <h2>Mon experience :</h2>
-        <%= @personnality.description %>
-      </div>
-
-      <div class="personnality-calendar">
-
-      </div>
+  <div class="purchase-sidebar" style="border: 1px solid rgb(221, 221, 221); border-radius: 12px; padding: 24px; box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;">
+    <div class="title">
+      <span><h3><strong><%= @personnality.price %>€</strong></h3></span>
+      <span><p class="m-2">par jour</p></span>
+      <span class="rating"><p class="card-trip-pricing d-flex"><i class="fa-solid fa-star rose px-1"></i> <%= @personnality.rating %></p></span>
     </div>
-
-    <div class="personnality-sidebar" style="border: 1px solid rgb(221, 221, 221); border-radius: 12px; padding: 24px; box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;">
-      <h2><%= @personnality.price %>€ par jour</h2>
-      <h2 class="card-trip-pricing d-flex"><i class="fa-solid fa-star rose px-1"></i> <%= @personnality.rating %></h2>
-      <%= render "booking-form", personnality: @personnality %>
-    </div>
+    <%= render "booking-form", personnality: @personnality %>
   </div>
 </div>

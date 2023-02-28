@@ -1,42 +1,74 @@
-.header-content {
+.sous-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
 }
 
-.profile-avatar {
-  flex-direction: column;
+.personnality-details {
   display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-right: 20px;
+  border-radius: 12px;
 }
 
-  .show-content {
-    flex-direction: row;
+  .personnality-header {
+    display: flex;
     width: 100%;
+    flex-direction: column;
+    border-bottom: solid 1px rgb(196, 196, 196);
   }
 
-    .personnality-description-content {
-      flex-direction: column;
-      width: 65vw;
-      height: 800px;
+  .personnality-header .skills {
+    flex-direction: row;
+    display: flex;
+    justify-content: space-around;
+  }
 
-    }
+  .personnality-header img {
+    height: auto;
+    width: 100%;
+    image-rendering: auto;
+    margin-bottom: 40px;
+  }
 
-      .personnality-description {
-        padding: 30px;
-        width: 100%;
-        height: 60%;
-      }
+  .personnality-header .images a {
+    position: relative;
+    left: 5%;
+    bottom: 85%;
+  }
 
-      .personnality-calendar {
-        width: 100%;
-        height: 40%;
-      }
+  .personnality-content {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 30px;
+  }
 
-    .personnality-sidebar {
-      height: 600px;
-      width: 35vw;
-      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-      border-radius: 10px;
-      padding: 10px;
-      margin: 10px;
+  .personnality-content h2 {
+    display: flex;
+    margin: 20px 0px;
+    padding: 40px 0px 0px 0px;
+    border-top: solid 1px rgb(196, 196, 196);
+  }
+
+
+.purchase-sidebar {
+  display: flex;
+  width: 500px;
+  flex-direction: column;
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+}
+
+  .purchase-sidebar .title {
+    flex-direction: row;
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+    .purchase-sidebar .title .rating {
+      position: absolute;
+      right: 30px;
+      top: 30px;
     }
