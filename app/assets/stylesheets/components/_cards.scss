@@ -69,3 +69,89 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+.card-trip {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.card-trip:hover {
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+.card-trip > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+.add-favorite{
+  margin-top: -190px !important;
+  margin-right: 10px !important;
+  font-size: 20px !important;
+  color:#FF0057 !important;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "fa-regular fa-heart";
+}
+.add-favorite-active{
+  margin-top: -190px !important;
+  margin-right: 10px !important;
+  font-size: 20px !important;
+  color:#FF0057 !important;
+  font-family: "Font Awesome 5 Free";
+  content: "\f004";
+}
+
+.card-trip .card-trip-infos{
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+.card-trip-infos h3 {
+  font-size:14px;
+  margin: 10px 0;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.card-trip-infos .personnality-infos h6 {
+  font-size:10px;
+  margin: 5px 0;
+  font-weight: bold;
+  color: #333;
+
+}
+
+.rose {
+  color:#FF0057
+}
+
+.linkdiv {
+text-decoration: none;
+color: #333;
+}
+.linkdiv:hover {
+  text-decoration: none;
+  color: #333;
+  }
