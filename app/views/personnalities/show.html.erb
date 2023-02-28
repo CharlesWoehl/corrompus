@@ -1,24 +1,29 @@
-<div class="header-content">
-  <div class="profile-avatar">
-    <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class:"avatar-large", alt:"Le Wagon" , width: 200 %>
-    <%= @personnality.skills %>
-    <p>rating: etoile - <%=  @personnality.user.address %></p>
-  </div>
-</div>
-
-<div class="body-content">
-  <div class="personnalit-description">
-    <div class="description">
-
-    </div>
-
-    <div class="calender">
-
+<div class="container py-4">
+  <div class="header-content">
+    <div class="profile-avatar">
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class:"avatar-large", alt:"Le Wagon" , width: 200 %>
+      <h1><%= @personnality.skills %></h1>
+      <p><strong>rating: etoile - <%=  @personnality.user.address %></strong></p>
     </div>
   </div>
 
-  <div class="sidebar">
+  <div class="show-content d-flex">
 
+    <div class="personnality-description-content d-flex">
+      <div class="personnality-description">
+        <h2>Mon experience :</h2>
+        <%= @personnality.description %>
+      </div>
+
+      <div class="personnality-calendar">
+
+      </div>
+    </div>
+
+    <div class="personnality-sidebar" style="border: 1px solid rgb(221, 221, 221); border-radius: 12px; padding: 24px; box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;">
+      <h2>personnalities.price</h2><p>par jour</p>
+      <p><strong>personnalities.rating</strong></p>
+      <%= render "booking-form", personnality: @personnality %>
+    </div>
   </div>
 </div>
-<%# <%= <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" /> %> %>

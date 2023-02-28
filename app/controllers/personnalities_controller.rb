@@ -5,6 +5,7 @@ class PersonnalitiesController < ApplicationController
 
   def show
     @personnality = Personnality.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
