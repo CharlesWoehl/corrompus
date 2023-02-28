@@ -3,8 +3,30 @@
 	min-height:100vh; /* 1 */
 	display:flex; /* 2 */
 	flex-direction:column; /* 3 */
+  background-color: white;
 }
 
 #content {
 	flex-grow:1; /* 4 */
+}
+
+.slogan {
+  font-size: 60px;
+  color: #FC306C;
+}
+
+.container h5 {
+  font-size: 22px;
+  color: #FFF
+
+}
+.container h6 {
+  font-size: 12px;
+  color: #FFF
+
+}
+
+.home-img {
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  border-radius: 5px;
 }

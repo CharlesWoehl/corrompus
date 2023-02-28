@@ -1,29 +1,28 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid px-4">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+      <%= image_tag "logo" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse button-rounded " id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Add a personnality", new_personnality_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
+
+          <li class="nav-item dropdown-connect">
+            <i class="fa-solid fa-bars"></i>
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Add me to personnality", new_personnality_path, class: "dropdown-item" %>
-              <%= link_to "Edit my profile user", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
+              <%= link_to "My reservations", bookings_path, class: "dropdown-item padding-item item-bold" %>
+              <%= link_to "Add me on personnality", new_personnality_path, class: "dropdown-item padding-item" %>
+              <%= link_to "Edit my account user", edit_user_registration_path, class: "dropdown-item padding-item" %>
+              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item padding-item border-bottom" %>
+              <%= link_to "View the personnalities", personnalities_path, class: "dropdown-item padding-item" %>
+              <%= link_to "View my profile", personnality_path(current_user), class: "dropdown-item padding-item" %>
+          </li>
           </li>
         <% else %>
           <li class="nav-item d-flex align-items-center">
