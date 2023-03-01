@@ -1,8 +1,8 @@
 <%= simple_form_for(personnality) do |f| %>
+  <%= f.input :name %>
   <%= f.input :description %>
-  <%= f.input :skills %>
-  <%= f.input :category %>
   <%= f.input :price %>
   <%= f.input :rating %>
+  <%= f.input :photo, as: :file %>
   <%= f.button :submit %>
 <% end %>

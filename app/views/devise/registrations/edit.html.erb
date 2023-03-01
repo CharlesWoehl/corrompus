@@ -1,4 +1,6 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="d-flex justify-content-center">
+  <div class="flex-column w-50">
+  <h2>Editer mon compte utilisateur</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: user_registration_path, html: { method: :put }) do |f| %>
   <%= f.error_notification %>
@@ -21,12 +23,15 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+
     <%= f.input :firstname,
                 required: true %>
     <%= f.input :lastname,
                 required: true %>
     <%= f.input :phone %>
     <%= f.input :address %>
+    <%= f.input :photo, as: :file %>
+
   </div>
 
   <div class="form-actions">
@@ -39,3 +44,5 @@
 <div>Unhappy? <%= button_to "Cancel my account", new_user_registration_path, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
 
 <%= link_to "Back", :back %>
+</div>
+</div>

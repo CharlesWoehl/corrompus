@@ -1,6 +1,7 @@
 class PersonnalitiesController < ApplicationController
   def index
     @personnalities = Personnality.all
+
   end
 
   def show
@@ -38,6 +39,6 @@ class PersonnalitiesController < ApplicationController
   private
 
   def personnality_params
-    params.require(:personnality).permit(:category, :description, :skills, :date_disponibility, :price, :rating)
+    params.require(:personnality).permit(:description, :price, :rating, :photo)
   end
 end
