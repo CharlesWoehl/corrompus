@@ -1,6 +1,8 @@
 class BookingsController < ApplicationController
   def index
     @bookings = Booking.all
+    @users = User.all
+    @personnalities = Personnality.all
   end
 
   def show
@@ -29,7 +31,7 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     @booking.update(booking_params)
-    redirect_to booking_path(@booking)
+    redirect_to bookings_path
   end
 
 private
