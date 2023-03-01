@@ -13,7 +13,13 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.save
+    @booking.user = current_user
+    @booking.personnality = Personnality.find(params[:personnality_id])
+    if @booking.save
+      redirect_to personnalities_path, notice: "Demande envoyée"
+    else
+      render "personnalities/show", status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -29,6 +35,6 @@ class BookingsController < ApplicationController
 private
 
   def booking_params
-    params.require(:booking).permit(:date_reservation, :personnality_id, :user_id)
+    params.require(:booking).permit(:end_date, :start_date)
   end
 end

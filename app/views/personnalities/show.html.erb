@@ -2,6 +2,7 @@
   <div class="personnality-details">
     <div class="personnality-header">
       <div class="images">
+        <%# <%= cl_image_tag @personnality.photo.key, crop: :fill %> %>
         <%= image_tag "img-test.jpg", alt:"Le Wagon" , width: 200 %>
         <a class="btn btn-ghost" href="#"><i class="fa-solid fa-fire"></i> Super Hot</a>
       </div>
@@ -19,7 +20,6 @@
       <p><%= @personnality.description %>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi perspiciatis qui error labore quae facilis quasi veniam, perferendis, odit delectus, commodi optio at culpa quam architecto totam provident esse quia.Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi perspiciatis qui error labore quae facilis quasi veniam, perferendis, odit delectus, commodi optio at culpa quam architecto totam provident esse quia.</p>
     </div>
   </div>
-
 
   <div class="purchase-sidebar" style="border: 1px solid rgb(221, 221, 221); border-radius: 12px; padding: 24px; box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;">
     <div class="title">
