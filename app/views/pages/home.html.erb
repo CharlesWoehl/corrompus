@@ -1,35 +1,6 @@
 <div class="container py-2">
-
-  <div class="d-flex my-4">
-    <div class="d-flex col-4 flex-column">
-      <h2 class="slogan">Ils ont évités la prison, alors pourquoi pas vous ?</h2>
-      <%= link_to "Voir nos personnalitées", personnalities_path, class: "btn btn-ghost w-50" %>
-    </div>
-    <div class="d-flex col-8 flex-column justify-content-center home-img" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://www.euractiv.fr/wp-content/uploads/sites/3/2021/03/sarkozy-tribunal-800x450.jpg);">
-      <div class="container">
-        <h5><i class="fa-solid fa-quote-left"></i> Si j'avais un mot à dire, je dirais la sincérité ou l'authenticité <i class="fa-solid fa-quote-right"></i></h5>
-        <h6>Nicolas Sarkozy <em>29 janvier 2012</em></h6>
-      </div>
-    </div>
-  </div>
-  <div class="cards my-5 align-self-stretch">
-    <div class="d-flex flex-column">
-      <div class="hometitle">Un accompagnement personnalisé</div>
-      <div class="homesoustitle">Nous vous mettons en contact avec une personnailité issue de tous milieux, qui vous guidera tout au long de votre procédure judiciare, que ce soit par téléphone, visio, chat ou physique.</div>
-    </div>
-
-    <div class="d-flex flex-column">
-      <div class="hometitle">Une personnalité expérimentée</div>
-      <div class="homesoustitle">Ancien président de la République, chanteur, ministre, acteur, ... Nos personnailitées justifient d'une expérience solide dans leur métier. Plusieurs fois jugées, mais jamais condamnées !</div>
-    </div>
-
-    <div class="d-flex flex-column">
-      <div class="hometitle">L'assurance Corrompus !</div>
-      <div class="homesoustitle">Tout au long de votre procédure judiciaire, Corrompus reste à vos côtés. Une détention provisoire ? Pas de souci ! Grâce à notre réseau, profitez d'un téléphone en prison, et en option une protection par d'autres détenus</div>
-    </div>
-  </div>
-
-  <h3 class="my-4">Notre selection du mois</h3>
-    <%= render "pages/list" %>
+  <h2 class="slogan">Ils ont évités la prison, alors pourquoi pas vous ?</h2>
+  <%= render "personnalities/list-skills" %>
+  <%= render "shared/personnality_card" %>
 
 </div>
