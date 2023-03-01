@@ -17,8 +17,8 @@
               <h2><%= personnality.name %></h2>
               <h6>
               <% @joinskills.each do |joinsk| %>
-<%= joinsk.skill.name %>
-<% end %>
+              <%= joinsk.skill.name %>
+              <% end %>
               </h6>
               <p><%= personnality.description %></p>
               <h3><%= personnality.price %> € / jour</h3>
@@ -27,7 +27,6 @@
             <h2 class="card-trip-pricing d-flex"><i class="fa-solid fa-star rose px-1"></i> <%= personnality.rating %></h2>
           </div>
         <% end %>
-
       </div>
   <% end %>
 </div>

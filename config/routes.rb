@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
   resources :personnalities do
-    resources :bookings, only: [:new, :create]
+    resources :bookings, only: [:new, :create, :edit, :update]
   end
-  resources :bookings, only: [:index, :show]
+  resources :bookings, only: [:index, :show, :edit, :update, :destroy]
   devise_for :users
   # root to: "personnalities#index"
   root to: "pages#home"
