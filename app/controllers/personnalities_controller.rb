@@ -1,6 +1,8 @@
 class PersonnalitiesController < ApplicationController
   def index
     @personnalities = Personnality.all
+    @skills = Skill.all
+    @joinskills = Joinskill.all
 
   end
 
