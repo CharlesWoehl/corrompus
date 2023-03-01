@@ -15,26 +15,29 @@
     display: flex;
     width: 100%;
     flex-direction: column;
-    border-bottom: solid 1px rgb(196, 196, 196);
+
   }
 
   .personnality-header .skills {
     flex-direction: row;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
   }
 
   .personnality-header img {
+    position: relative;
     height: auto;
     width: 100%;
-    image-rendering: auto;
-    margin-bottom: 40px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
   }
 
   .personnality-header .images a {
     position: relative;
-    left: 5%;
-    bottom: 85%;
+    bottom: 70px;
+    left: 15px;
   }
 
   .personnality-content {
@@ -71,4 +74,8 @@
       position: absolute;
       right: 30px;
       top: 30px;
+    }
+
+    .purchase-sidebar .title .rating .fa-solid {
+      padding-top: 3px;
     }
