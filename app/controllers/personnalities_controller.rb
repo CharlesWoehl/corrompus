@@ -41,6 +41,6 @@ class PersonnalitiesController < ApplicationController
   private
 
   def personnality_params
-    params.require(:personnality).permit(:description, :price, :rating, :photo)
+    params.require(:personnality).permit(:description, :price, :rating, :photo, :name)
   end
 end
