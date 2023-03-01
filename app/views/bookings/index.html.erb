@@ -29,6 +29,7 @@
         </div>
         <div class="d-grid gap-2 d-md-block">
 
+
             <% if booking.status == "accepted" %>
     <div class="msg-bookings">Vous avez <strong>accepté</strong> la demande</div>
             <% elsif booking.status == "declined" %>
@@ -46,7 +47,6 @@
                 <%= f.input :status, as: :hidden, input_html: { value: "declined" } %>
                 <%= f.submit "Refuser", class: "btn btn-danger" %>
                 <% end %></div>
-
       </div>
         <% end %>
         </div>
