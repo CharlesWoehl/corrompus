@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema[7.0].define(version: 2023_03_01_110137) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,9 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_01_110137) do
     t.date "start_date"
     t.date "end_date"
     t.integer "total_price"
-
     t.string "status", default: "pending"
-
     t.index ["personnality_id"], name: "index_bookings_on_personnality_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end

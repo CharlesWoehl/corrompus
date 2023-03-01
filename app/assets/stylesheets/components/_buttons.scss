@@ -14,11 +14,25 @@
   background-color: #FF0057;
 }
 
+.btn-cancel {
+  color: #1c1c1c;
+  width: 100%;
+  padding: 8px 24px;
+  margin-top: 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  background-color: white;
+}
+
+
+
 .btn-flat {
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #670BFF;
+  background: #FF0057;
   transition: background 0.3s ease;
   width: 100%;
 }

@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.personnality = Personnality.find(params[:personnality_id])
     if @booking.save
-      redirect_to personnalities_path, notice: "Demande envoyée"
+      redirect_to bookings_path, notice: "Demande envoyée"
     else
       render "personnalities/show", status: :unprocessable_entity
     end

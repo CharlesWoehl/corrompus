@@ -2,11 +2,11 @@
   <div class="personnality-details">
     <div class="personnality-header">
       <div class="images">
-        <%# <%= cl_image_tag @personnality.photo.key, crop: :fill %> %>
-        <%= image_tag "img-test.jpg", alt:"Le Wagon" , width: 200 %>
-        <a class="btn btn-ghost" href="#"><i class="fa-solid fa-fire"></i> Super Hot</a>
+        <%= cl_image_tag @personnality.photo.key, crop: :fill %>
+        <a class="btn btn-ghost" href="#"><i class="fa-solid fa-fire"></i> Super méchant</a>
       </div>
       <div class="skills">
+        <h1><%= @personnality.name  %></h1>
         <% @personnality.skills.each do |skill| %>
           <h3><%= skill.name.capitalize %></h3>
         <% end %>
@@ -17,7 +17,7 @@
     <div class="personnality-content">
       <%= render "list-skills" %>
       <h2>Mon experience :</h2>
-      <p><%= @personnality.description %>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi perspiciatis qui error labore quae facilis quasi veniam, perferendis, odit delectus, commodi optio at culpa quam architecto totam provident esse quia.Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi perspiciatis qui error labore quae facilis quasi veniam, perferendis, odit delectus, commodi optio at culpa quam architecto totam provident esse quia.</p>
+      <p><%= @personnality.description %></p>
     </div>
   </div>
 
