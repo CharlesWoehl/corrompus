@@ -4,15 +4,23 @@ class PersonnalitiesController < ApplicationController
     @skills = Skill.all
     @joinskills = Joinskill.all
 
+
   end
 
   def show
     @personnality = Personnality.find(params[:id])
     @booking = Booking.new
+    @skills = Skill.all
+    @joinskills = Joinskill.all
+
+   @activeskills = Joinskill.where(personnality_id: @personnality.id)
+
   end
 
   def new
     @personnality = Personnality.new
+    @skills = Skill.all
+    @joinskills = Joinskill.all
   end
 
   def create
