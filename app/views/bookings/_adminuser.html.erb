@@ -1,0 +1,97 @@
+
+
+
+
+<div>
+<h2 class="mt-5 mb-3">Mes réservations actuelles</h2>
+    <% @bookings.where("end_date >= ?", 0.days.ago).each do |booking| %>
+    <% duree = (booking.end_date - booking.start_date).to_i %>
+<% if current_user.id == booking.user_id %>
+
+  <div class="card-product my-2 borderradius">
+    <div class="d-flex h-100">
+      <% if booking.personnality.photo.key? %>
+        <%= cl_image_tag booking.personnality.photo.key, crop: :fill %>
+       <% else %>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+       <% end %>
+    </div>
+
+    <div class="card-product-infos flex-grow-1">
+      <h2><%= booking.user.firstname %> <%= booking.user.lastname %> souhaite réserver <%= booking.personnality.name %> </h2>
+      <p>Réservation souhaitée du <strong><%= booking.start_date.strftime('%d/%m/%Y') %></strong>  au <strong><%= booking.end_date.strftime('%d/%m/%Y') %></strong></p>
+      <p>Durée : <strong>
+      <% if (duree == 0) %>
+      1 jour </strong>
+      <% else %>
+      <%=  duree %> jours
+      <% end %>
+      </strong>
+      </p>
+       <p>Montant total : <strong><% if (duree == 0) %><%= booking.personnality.price %> <% else %><%= duree * booking.personnality.price %><% end %> € </strong></p>
+    </div>
+ <% if booking.status == "accepted" %>
+    <div class="msg-bookings px-5 text-success">Votre demande de reservation est <strong>acceptée</strong></div>
+            <% elsif booking.status == "declined" %>
+    <div class="msg-bookings px-5 text-danger">Votre demande de reservation est <strong>annulée</strong></div>
+            <% else%>
+      <div class="msg-bookings px-5">Votre demande de réservation est en  <strong>attente de confirmation</strong></div>
+        <% end %>
+        </div>
+
+
+  <% end %>
+  <% end %>
+
+
+</div>
+
+
+<div>
+
+<h2 class="mt-5 mb-3 ">Mes réservations passées</h2>
+    <% @bookings.where("end_date < ?", 0.days.ago).each do |booking| %>
+    <% duree = (booking.end_date - booking.start_date).to_i %>
+<% if current_user.id == booking.user_id %>
+
+  <div class="card-product my-2 oldbooking borderradius">
+    <div class="d-flex h-100">
+      <% if booking.personnality.photo.key? %>
+        <%= cl_image_tag booking.personnality.photo.key, crop: :fill %>
+       <% else %>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+       <% end %>
+    </div>
+
+    <div class="card-product-infos flex-grow-1">
+      <h2><%= booking.user.firstname %> <%= booking.user.lastname %> souhaite réserver <%= booking.personnality.name %> </h2>
+      <p>Réservation souhaitée du <strong><%= booking.start_date.strftime('%d/%m/%Y') %></strong>  au <strong><%= booking.end_date.strftime('%d/%m/%Y') %></strong></p>
+      <p>Durée : <strong>
+      <% if (duree == 0) %>
+      1 jour </strong>
+      <% else %>
+      <%=  duree %> jours
+      <% end %>
+      </strong>
+      </p>
+      <p>Montant total : <strong><% if (duree == 0) %><%= booking.personnality.price %> <% else %><%= duree * booking.personnality.price %><% end %> € </strong></p>
+    </div>
+
+<% if booking.status == "accepted" %>
+    <div class="msg-bookings px-5 text-success">Votre demande de reservation est <strong>acceptée</strong></div>
+            <% elsif booking.status == "declined" %>
+    <div class="msg-bookings px-5 text-danger">Votre demande de reservation est <strong>annulée</strong></div>
+            <% else%>
+      <div class="msg-bookings px-5">Votre demande de réservation est en  <strong>attente de confirmation</strong></div>
+        <% end %>
+        </div>
+
+
+
+  <% end %>
+  <% end %>
+
+
+</div>
+
+</div>

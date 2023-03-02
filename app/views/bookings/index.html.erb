@@ -1,94 +1,18 @@
 <div class="container">
-<h1>Mes réservations</h1>
-<p>Retrouvez ici tous vos réservations passées sur notre site internet.</p>
-<p>Vous avez <%= @pending %> validations en attente</p>
+<% if current_user.owner? %>
+<h2>Mon compte propriétaire</h2>
+<%= render 'adminprofile' %>
+<% else %>
+<h2>Mon compte utilisateur</h2>
+<% end %>
 
 <% if current_user.owner? %>
 
- <div class="cards">
-  <% @bookings.each do |booking| %>
-  <% if current_user.id == booking.user_id %>
-      <div class="card-trip m-2">
-          <% personnality = Personnality.find(booking.personnality.id) %>
-          <% if personnality.photo.key? %>
-            <%= cl_image_tag personnality.photo.key, crop: :fill %>
-          <% else %>
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-          <% end %>
-
-        <div class="card-trip-infos  d-flex align-items-start">
-        <div class="add-favorite position-absolute top-0 end-0"><i class="fa-regular fa-heart"></i></div>
-          <div class="personnality-infos">
-            <p><strong><%= booking.user.firstname %> <%= booking.user.lastname %></strong> souhaite faire une reservation</p>
-            <p my-1><u>Dates souhaitées</u></p>
-            <p>Du : <strong><%= booking.start_date %></strong> au : <strong><%= booking.end_date %> </strong></p>
-
-            <p><%= booking.total_price %></p>
-
-          </div>
-        </div>
-        <div class="d-grid gap-2 d-md-block">
-
-
-            <% if booking.status == "accepted" %>
-    <div class="msg-bookings">Vous avez <strong>accepté</strong> la demande</div>
-            <% elsif booking.status == "declined" %>
-    <div class="msg-bookings">Vous avez <strong>decliné</strong> la demande</div>
-            <% else%>
-    <div class="msg-bookings">Vous devez confirmer la demande</div>
-      <div class="d-flex justify-content-between">
-
-        <div class="d-flex justify-content-between"><%= simple_form_for(booking) do |f| %>
-                <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
-                <%= f.submit "Accepter", class: "btn btn-success" %>
-                <% end %></div>
-
-        <div class="d-flex justify-content-between"><%= simple_form_for(booking) do |f| %>
-                <%= f.input :status, as: :hidden, input_html: { value: "declined" } %>
-                <%= f.submit "Refuser", class: "btn btn-danger" %>
-                <% end %></div>
-      </div>
-        <% end %>
-        </div>
-      </div>
-  <% end %>
-  <% end %>
-</div>
+  <%= render 'adminowner' %>
 
 <% else %>
 
-
-<div class="cards">
-
-  <% @bookings.each do |booking| %>
-<% if current_user.id == booking.user_id %>
-      <div class="card-trip m-2">
-          <% personnality = Personnality.find(booking.personnality.id) %>
-          <% if personnality.photo.key? %>
-            <%= cl_image_tag personnality.photo.key, crop: :fill %>
-          <% else %>
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-          <% end %>
-
-        <div class="card-trip-infos  d-flex align-items-start">
-        <div class="add-favorite position-absolute top-0 end-0"><i class="fa-regular fa-heart"></i></div>
-          <div class="personnality-infos">
-            <p><u>Dates souhaitées de la réservation</u></p>
-            <p>Du :<%= booking.start_date %> au : <%= booking.end_date %></p>
-            <p><%= booking.total_price %></p>
-            <h2>Statut de la réservation : <%= booking.status %></h2>
-            <h2><%= link_to "Annuler la réservation", "#", class:'btn btn-danger rounded-3'%></h2>
-          </div>
-        </div>
-        <div class="d-grid gap-2 d-md-block">
-
-        </div>
-      </div>
-  <% end %>
-    <% end %>
-</div>
-
-
+  <%= render 'adminuser' %>
 
 <% end %>
 </div>

@@ -3,6 +3,14 @@ class PersonnalitiesController < ApplicationController
     @personnalities = Personnality.all
     @skills = Skill.all
     @joinskills = Joinskill.all
+    if params[:category].present?
+      sql_query = <<~SQL
+        skills.name ILIKE :query
+      SQL
+      @personnalities = Personnality.joins(:skills).where(sql_query, query: "%#{params[:category]}%")
+    else
+      @personnalities = Personnality.all
+    end
   end
 
   def show
@@ -12,7 +20,6 @@ class PersonnalitiesController < ApplicationController
     @joinskills = Joinskill.all
 
    @activeskills = Joinskill.where(personnality_id: @personnality.id)
-
   end
 
   def new
@@ -59,12 +66,12 @@ class PersonnalitiesController < ApplicationController
   def destroy
     @personnality = Personnality.find(params[:id])
     @personnality.destroy
-    redirect_to personnalities_path
+    redirect_to bookings_path
   end
 
   private
 
   def personnality_params
-    params.require(:personnality).permit(:description, :price, :rating, :photo, :name, :skills)
+    params.require(:personnality).permit(:description, :price, :rating, :photo, :name, :punchline, :skills)
   end
 end

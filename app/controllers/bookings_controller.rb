@@ -1,9 +1,10 @@
 class BookingsController < ApplicationController
   def index
     @bookings = Booking.all.order(created_at: :desc)
-    @pending = Booking.where(user_id: current_user, status: "pended").count
-    @accepted = Booking.where(user_id: current_user, status: "accepted").count
+     @accepted = Booking.where(user_id: current_user, status: "accepted").count
     @declined = Booking.where(user_id: current_user, status: "declined").count
+    @pendingowner = Booking.where(user_id: current_user, status: "pended").count
+
     @users = User.all
     @personnalities = Personnality.all
     @joinskills = Joinskill.all
@@ -35,6 +36,9 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
+  def destroy
+      @booking = Booking.find(params[:id])
+  end
 private
 
   def booking_params

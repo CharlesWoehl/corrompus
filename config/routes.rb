@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :personnalities do
-    resources :bookings, only: [:new, :create, :edit, :update]
+    resources :bookings, only: [:new, :create, :edit, :update, :index]
   end
   resources :bookings, only: [:index, :show, :edit, :update, :destroy]
   devise_for :users
