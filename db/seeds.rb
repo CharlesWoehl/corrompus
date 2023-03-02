@@ -8,7 +8,7 @@
 
 # briag = User.create!(firstname: "Briag", lastname: "Martin", email: "briag.martin@gmail.com", password: "password", password_confirmation: "password", admin: true)
 # test_user = User.create!(firstname: "Briag", lastname: "Martin", email: "test@gmail.com", password: "123456", password_confirmation: "123456", admin: false)
-# Personnality.create!(category: "Développeur", description: "Je suis un développeur", skills: "Ruby, Rails, HTML, CSS, JS", date_disponibility: "2021-01-01", user: briag)
+#Personnality.create!(category: "Développeur", description: "Je suis un développeur", skills: "Ruby, Rails, HTML, CSS, JS", date_disponibility: "2021-01-01", user: briag)
 Booking.destroy_all
 Joinskill.destroy_all
 Skill.destroy_all
@@ -24,13 +24,13 @@ sarko = Personnality.create!(description: "Je suis un développeur", price: 100,
 balkany = Personnality.create!(description: "Je suis un agitateur", price: 200, rating: 4, name: "Balkany", user: baptiste)
 fillon = Personnality.create!(description: "Je suis un provovateur", price: 300, rating: 3, name: "Fillon", user: charles)
 
-meurtre = Skill.create!(name: "meurtre")
-pedophilie = Skill.create!(name: "pédophilie")
-fraude = Skill.create!(name: "fraude fiscale")
-ivresse = Skill.create!(name: "ivresse")
-drogue = Skill.create!(name: "drogue")
-violence = Skill.create!(name: "violence conjugale")
-insulte = Skill.create!(name: "insulte")
+meurtre = Skill.create!(name: "meurtre", icone: "fa-solid fa-person-falling-burst")
+pedophilie = Skill.create!(name: "pédophilie", icone: "fa-solid fa-children")
+fraude = Skill.create!(name: "fraude fiscale", icone: "fa-solid fa-dollar-sign")
+ivresse = Skill.create!(name: "ivresse", icone: "fa-solid fa-wine-bottle")
+drogue = Skill.create!(name: "drogue", icone: "fa-solid fa-cannabis")
+violence = Skill.create!(name: "violence conjugale", icone: "fa-solid fa-person-dress-burst")
+insulte = Skill.create!(name: "insulte", icone: "fa-solid fa-person-harassing")
 
 Joinskill.create!(personnality: sarko, skill: meurtre)
 Joinskill.create!(personnality: sarko, skill: pedophilie)

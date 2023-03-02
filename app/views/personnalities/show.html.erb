@@ -8,18 +8,35 @@
       <div class="skills">
         <h1><%= @personnality.name  %></h1>
 
-        <p class="card-trip-pricing d-flex"></p>
       </div>
     </div>
 
     <div class="personnality-content">
-      <%= render "list-skills" %>
+     <div class="d-flex justify-content-around p-3 mb-4">
+
+
+
+<% @joinskills.where(personnality_id: @personnality.id).each do |join| %>
+ <div class="d-flex flex-column text-center personnality-infos">
+        <div class="icone-list-pers rose"> <i class="<%= join.skill.icone %>"></i></div>
+        <div class="name-list-pers"><%= join.skill.name %></div>
+      </div>
+<% end %>
+<% @joinskills.where.not(personnality_id: @personnality.id).each do |join| %>
+ <div class="d-flex flex-column text-center personnality-infos">
+        <div class="icone-list-pers"> <i class="<%= join.skill.icone %>"></i></div>
+        <div class="name-list-pers"><%= join.skill.name %></div>
+      </div>
+<% end %>
+
+</div>
+
       <h2>Mon experience :</h2>
       <p><%= @personnality.description %></p>
     </div>
   </div>
 
-  <div class="purchase-sidebar" style="border: 1px solid rgb(221, 221, 221); border-radius: 12px; padding: 24px; box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;">
+  <div class="purchase-sidebar sidestyle">
     <div class="title">
       <span><h3><strong><%= @personnality.price %>€</strong></h3></span>
       <span><p class="m-2">par jour</p></span>

@@ -4,5 +4,9 @@
   <%= f.input :price %>
   <%= f.input :rating %>
   <%= f.input :photo, as: :file %>
+
+  <%=   f.collection_check_boxes :id, Skill.all, :id, :name, item_label_class: 'my-custom-class' # using :roles here is not going to work.
+ %>
+
   <%= f.button :submit, class:"btn-flat" %>
 <% end %>
