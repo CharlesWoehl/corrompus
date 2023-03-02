@@ -3,7 +3,7 @@
     <div class="personnality-header">
       <div class="images">
         <%= cl_image_tag @personnality.photo.key, crop: :fill %>
-        <a class="btn btn-ghost" href="#"><i class="fa-solid fa-fire"></i> Super méchant</a>
+        <a class="btn btn-ghost" href="#"><i class="fa-solid fa-fire"></i> <%= @personnality.punchline %></a>
       </div>
       <div class="skills">
         <h1><%= @personnality.name  %></h1>

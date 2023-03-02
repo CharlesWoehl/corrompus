@@ -1,0 +1,158 @@
+ <div>
+  <h2 class="mt-5 mb-3">Mes packs disponibles</h2>
+  <div class="cards ">
+    <% @personnalities.where(user_id: current_user).order(:name).each do |personnality| %>
+      <div class="card-trip m-2 borderradius5">
+        <% if personnality.photo.key? %>
+          <%= cl_image_tag personnality.photo.key, crop: :fill %>
+        <% else %>
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <% end %>
+        <div class="card-trip-infos  d-flex align-items-start">
+          <div class="personnality-infos">
+            <h2><%= personnality.name %></h2>
+            <div class="d-flex  fs-6">
+              <div class="d-flex text-center">
+                <% @joinskills.where(personnality_id: personnality.id).each do |join| %>
+              <div class="icone-list-pers d-flex p-2 miniicone"> <i class="<%= join.skill.icone %>"></i></div>
+              <% end %>
+            </div>
+            </div>
+            <p><%= personnality.description %></p>
+            <h2><%= personnality.price %> € / jour</h2>
+          </div>
+          <h2 class="card-trip-pricing d-flex"><i class="fa-solid fa-star rose px-1"></i> <%= personnality.rating %></h2>
+        </div>
+        <div class="d-flex">
+          <%= link_to 'Editer', '#', class: "btn" %>
+          <%= link_to 'Supprimer', personnality_path(personnality.id), data: {turbo_method: :delete, turbo_confirm: "Êtes vous sûr ?"}, class:"text-decoration-none text-danger" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
+
+<div>
+<h2 class="mt-5 mb-3">Mes réservations actuelles</h2>
+    <% @bookings.where("end_date >= ?", 0.days.ago).each do |booking| %>
+    <% duree = (booking.end_date - booking.start_date).to_i %>
+    <% if current_user.id == booking.personnality.user_id %>
+
+  <div class="card-product my-2 borderradius">
+    <div class="d-flex h-100">
+      <% if booking.personnality.photo.key? %>
+        <%= cl_image_tag booking.personnality.photo.key, crop: :fill %>
+       <% else %>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+       <% end %>
+    </div>
+
+    <div class="card-product-infos flex-grow-1">
+      <h2><%= booking.user.firstname %> <%= booking.user.lastname %> souhaite réserver <%= booking.personnality.name %> </h2>
+      <p>Réservation souhaitée du <strong><%= booking.start_date.strftime('%d/%m/%Y') %></strong>  au <strong><%= booking.end_date.strftime('%d/%m/%Y') %></strong></p>
+      <p>Durée : <strong>
+      <% if (duree == 0) %>
+      1 jour </strong>
+      <% else %>
+      <%=  duree %> jours
+      <% end %>
+      </strong>
+      </p>
+       <p>Montant total : <strong><% if (duree == 0) %><%= booking.personnality.price %> <% else %><%= duree * booking.personnality.price %><% end %> € </strong></p>
+    </div>
+
+ <% if booking.status == "accepted" %>
+    <div class="msg-bookings px-5">Vous avez <strong>accepté</strong> la demande</div>
+            <% elsif booking.status == "declined" %>
+    <div class="msg-bookings px-5">Vous avez <strong>decliné</strong> la demande</div>
+            <% else%>
+       <div class="d-flex justify-content-between">
+
+
+     <div class="d-flex justify-content-between flex-column pt-2 pb-3 m-2"><%= simple_form_for(booking) do |f| %>
+        <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
+        <%= f.submit "Accepter", class: "btn btn-success validatebtn" %>
+        <% end %>
+
+        <%= simple_form_for(booking) do |f| %>
+        <%= f.input :status, as: :hidden, input_html: { value: "declined" } %>
+        <%= f.submit "Refuser", class: "btn btn-danger validatebtn" %>
+        <% end %>
+      </div>
+ </div>
+        <% end %>
+        </div>
+
+
+  <% end %>
+  <% end %>
+
+
+</div>
+
+
+<div>
+
+<h2 class="mt-5 mb-3 ">Mes réservations passées</h2>
+    <% @bookings.where("end_date < ?", 0.days.ago).each do |booking| %>
+    <% duree = (booking.end_date - booking.start_date).to_i %>
+    <% if current_user.id == booking.personnality.user_id %>
+
+  <div class="card-product my-2 oldbooking borderradius">
+    <div class="d-flex h-100">
+      <% if booking.personnality.photo.key? %>
+        <%= cl_image_tag booking.personnality.photo.key, crop: :fill %>
+       <% else %>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+       <% end %>
+    </div>
+
+    <div class="card-product-infos flex-grow-1">
+      <h2><%= booking.user.firstname %> <%= booking.user.lastname %> souhaite réserver <%= booking.personnality.name %> </h2>
+      <p>Réservation souhaitée du <strong><%= booking.start_date.strftime('%d/%m/%Y') %></strong>  au <strong><%= booking.end_date.strftime('%d/%m/%Y') %></strong></p>
+      <p>Durée : <strong>
+      <% if (duree == 0) %>
+      1 jour </strong>
+      <% else %>
+      <%=  duree %> jours
+      <% end %>
+      </strong>
+      </p>
+      <p>Montant total : <strong><% if (duree == 0) %><%= booking.personnality.price %> <% else %><%= duree * booking.personnality.price %><% end %> € </strong></p>
+    </div>
+
+ <% if booking.status == "accepted" %>
+    <div class="msg-bookings px-5">Vous avez <strong>accepté</strong> la demande</div>
+            <% elsif booking.status == "declined" %>
+    <div class="msg-bookings px-5">Vous avez <strong>decliné</strong> la demande</div>
+            <% else%>
+       <div class="d-flex justify-content-between">
+
+
+     <div class="d-flex justify-content-between flex-column pt-2 pb-3 m-2"><%= simple_form_for(booking) do |f| %>
+        <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
+        <%= f.submit "Accepter", class: "btn btn-success validatebtn" %>
+        <% end %>
+
+        <%= simple_form_for(booking) do |f| %>
+        <%= f.input :status, as: :hidden, input_html: { value: "declined" } %>
+        <%= f.submit "Refuser", class: "btn btn-danger validatebtn" %>
+        <% end %>
+      </div>
+ </div>
+        <% end %>
+        </div>
+
+
+  <% end %>
+  <% end %>
+
+
+</div>
+
+</div>

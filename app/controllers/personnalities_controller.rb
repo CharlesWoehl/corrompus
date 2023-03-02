@@ -48,12 +48,12 @@ class PersonnalitiesController < ApplicationController
   def destroy
     @personnality = Personnality.find(params[:id])
     @personnality.destroy
-    redirect_to personnalities_path
+    redirect_to bookings_path
   end
 
   private
 
   def personnality_params
-    params.require(:personnality).permit(:description, :price, :rating, :photo, :name)
+    params.require(:personnality).permit(:description, :price, :rating, :photo, :name, :punchline)
   end
 end
