@@ -11,6 +11,7 @@
         <div class="card-trip-infos  d-flex align-items-start">
           <div class="personnality-infos">
             <h2><%= personnality.name %></h2>
+            <h2><%= personnality.punchline %></h2>
             <div class="d-flex  fs-6">
               <div class="d-flex text-center">
                 <% @joinskills.where(personnality_id: personnality.id).each do |join| %>
@@ -24,7 +25,7 @@
           <h2 class="card-trip-pricing d-flex"><i class="fa-solid fa-star rose px-1"></i> <%= personnality.rating %></h2>
         </div>
         <div class="d-flex">
-          <%= link_to 'Editer', '#', class: "btn" %>
+          <%= link_to 'Editer', edit_personnality_path(personnality.id), class:"text-decoration-none text-success"%>
           <%= link_to 'Supprimer', personnality_path(personnality.id), data: {turbo_method: :delete, turbo_confirm: "Êtes vous sûr ?"}, class:"text-decoration-none text-danger" %>
         </div>
       </div>
@@ -67,7 +68,7 @@
     </div>
 
  <% if booking.status == "accepted" %>
-    <div class="msg-bookings px-5">Vous avez <strong>accepté</strong> la demande</div>
+    <div class="msg-bookings px-5 text-success">Vous avez <strong>accepté</strong> la demande</div>
             <% elsif booking.status == "declined" %>
     <div class="msg-bookings px-5">Vous avez <strong>decliné</strong> la demande</div>
             <% else%>
@@ -127,7 +128,7 @@
     </div>
 
  <% if booking.status == "accepted" %>
-    <div class="msg-bookings px-5">Vous avez <strong>accepté</strong> la demande</div>
+    <div class="msg-bookings px-5 text-success">Vous avez <strong>accepté</strong> la demande</div>
             <% elsif booking.status == "declined" %>
     <div class="msg-bookings px-5">Vous avez <strong>decliné</strong> la demande</div>
             <% else%>
