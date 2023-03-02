@@ -20,9 +20,9 @@ briag = User.create!(firstname: "Briag", lastname: "Martin", email: "briag.marti
 baptiste = User.create!(firstname: "Baptiste", lastname: "Lemmonier", email: "baptil@gmail.com", password: "password", password_confirmation: "password", phone: 123456789, address: "Paris", owner: true)
 charles = User.create!(firstname: "Charles", lastname: "Woehl", email: "charleswoehl@gmail.com", password: "password", password_confirmation: "password", phone: 123456789, address: "Paris", owner: true)
 
-sarko = Personnality.create!(description: "Je suis un développeur", price: 100, rating: 5, name: "Sarko", user: briag, photo: "http://res.cloudinary.com/dkzycxs88/image/upload/c_fill/v1/development/mgshc8op4cvc8oesowtmo4uc3h8i")
-balkany = Personnality.create!(description: "Je suis un agitateur", price: 200, rating: 4, name: "Balkany", user: baptiste, photo: "http://res.cloudinary.com/dkzycxs88/image/upload/c_fill/v1/development/8jise3w8sdoe73sljc02io9u4v43")
-fillon = Personnality.create!(description: "Je suis un provovateur", price: 300, rating: 3, name: "Fillon", user: charles, photo: "http://res.cloudinary.com/dkzycxs88/image/upload/c_fill/v1/development/4iss3aklq6op9sqwtpyfxujk97")
+sarko = Personnality.create!(description: "Je suis un développeur", price: 100, rating: 5, name: "Sarko", user: briag)
+balkany = Personnality.create!(description: "Je suis un agitateur", price: 200, rating: 4, name: "Balkany", user: baptiste)
+fillon = Personnality.create!(description: "Je suis un provovateur", price: 300, rating: 3, name: "Fillon", user: charles)
 
 meurtre = Skill.create!(name: "meurtre", icone: "fa-solid fa-person-falling-burst")
 pedophilie = Skill.create!(name: "pédophilie", icone: "fa-solid fa-children")
