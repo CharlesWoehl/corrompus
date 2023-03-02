@@ -3,8 +3,14 @@ class PersonnalitiesController < ApplicationController
     @personnalities = Personnality.all
     @skills = Skill.all
     @joinskills = Joinskill.all
-
-
+    if params[:category].present?
+      sql_query = <<~SQL
+        skills.name ILIKE :query
+      SQL
+      @personnalities = Personnality.joins(:skills).where(sql_query, query: "%#{params[:category]}%")
+    else
+      @personnalities = Personnality.all
+    end
   end
 
   def show
@@ -14,7 +20,6 @@ class PersonnalitiesController < ApplicationController
     @joinskills = Joinskill.all
 
    @activeskills = Joinskill.where(personnality_id: @personnality.id)
-
   end
 
   def new
