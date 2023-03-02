@@ -4,9 +4,16 @@
   <%= f.input :price %>
   <%= f.input :punchline %>
   <%= f.input :photo, as: :file %>
+    <div class="checkbox-container">
+      <% Skill.all.each do |skill| %>
+        <% checked = @personnality.skills.include?(skill) %>
+        <div class="my-custom-class">
+        <%= f.check_box :skill_ids, { multiple: true }, skill.id, checked: checked %>
+        <%= skill.name %>
+        </div>
+      <% end %>
+    </div>
+  <%= f.submit "Update", class:"btn-flat"%>
 
-  <%=   f.collection_check_boxes :id, Skill.all, :id, :name, item_label_class: 'my-custom-class' # using :roles here is not going to work.
- %>
 
-  <%= f.button :submit, class:"btn-flat" %>
 <% end %>

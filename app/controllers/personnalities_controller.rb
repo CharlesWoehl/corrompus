@@ -31,6 +31,11 @@ class PersonnalitiesController < ApplicationController
   def create
     @personnality = Personnality.new(personnality_params)
     @personnality.user = current_user
+    @skills.each do |skill|
+      unless skill == "" || skill.length > 4
+        Joinskill.find_or_create_by(personnality: @personnality, skill_id: skill.to_i)
+      end
+    end
     @personnality.save
     redirect_to personnality_path(@personnality)
   end
@@ -41,9 +46,22 @@ class PersonnalitiesController < ApplicationController
 
   def update
     @personnality = Personnality.find(params[:id])
+    @skills = params[:personnality][:skill_ids]
+    # Suppression des joinskill non selectionnés
+    @personnality.joinskills.each do |skill|
+      unless @skills.include?(skill.skill_id.to_s)
+        skill.destroy
+      end
+    end
+    @skills.each do |skill|
+      unless skill == "" || skill.length > 4
+        Joinskill.find_or_create_by(personnality: @personnality, skill_id: skill.to_i)
+      end
+    end
     @personnality.update(personnality_params)
     redirect_to personnality_path(@personnality)
   end
+
 
   def destroy
     @personnality = Personnality.find(params[:id])
@@ -54,6 +72,6 @@ class PersonnalitiesController < ApplicationController
   private
 
   def personnality_params
-    params.require(:personnality).permit(:description, :price, :rating, :photo, :name, :punchline)
+    params.require(:personnality).permit(:description, :price, :rating, :photo, :name, :punchline, :skills)
   end
 end
