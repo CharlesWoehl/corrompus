@@ -62,7 +62,6 @@ class PersonnalitiesController < ApplicationController
     redirect_to personnality_path(@personnality)
   end
 
-
   def destroy
     @personnality = Personnality.find(params[:id])
     @personnality.destroy
