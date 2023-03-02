@@ -1,10 +1,11 @@
 <div class="d-flex justify-content-around p-3 mb-4">
 
 <% @skills.each do |skill| %>
-
+  <%= link_to personnalities_path(category: skill.name) do %>
     <div class="d-flex flex-column text-center personnality-infos">
       <div class="icone-list-pers"> <i class="<%= skill.icone %>"></i></div>
       <div class="name-list-pers"><%= skill.name %></div>
     </div>
+  <% end %>
 <% end %>
 </div>
