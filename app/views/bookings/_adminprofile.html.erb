@@ -1,0 +1,16 @@
+<div class="d-flex border-bottom p-4">
+  <div class="d-flex align-self-center"><%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar-bordered dropdown-toggle largepic", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %></div>
+  <div class="d-flex flex-column align-self-center mx-4 flex-grow-1">
+    <div class="d-flex"><strong><%= current_user.lastname %> <%= current_user.firstname %></strong></div>
+    <div class="d-flex">Mail : <%= current_user.email %></div>
+    <div class="d-flex">Tél : <%= current_user.phone %></div>
+    <div class="d-flex">Adresse : <%= current_user.address %></div>
+   </div>
+  <div class="d-flex flex-column align-self-center">
+   <%= link_to 'Editer mon profile', '#', class: "btn  text-success" %>
+   <%= link_to '++ Ajouter une fiche personnalité', '#', class: "btn  text-primary-emphasis" %>
+   <%= link_to 'Supprimer mon profile', '#', class: "btn text-danger" %>
+
+  </div>
+
+</div>

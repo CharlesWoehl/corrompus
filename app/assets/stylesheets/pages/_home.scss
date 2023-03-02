@@ -1,9 +1,13 @@
-// Specific CSS for your home-page
+body {
+  background-color: #F9F9F9
+}
+
 #page {
 	min-height:100vh; /* 1 */
 	display:flex; /* 2 */
 	flex-direction:column; /* 3 */
-  background-color: white;
+  background-color: #F9F9F9;
+
 }
 
 #content {
