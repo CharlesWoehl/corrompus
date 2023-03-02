@@ -4,6 +4,8 @@
 <%= render 'adminprofile' %>
 <% else %>
 <h2>Mon compte utilisateur</h2>
+<%= render 'userprofile' %>
+
 <% end %>
 
 <% if current_user.owner? %>
