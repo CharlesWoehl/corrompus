@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-around p-3 mb-4">
 <% @skills.each do |skill| %>
   <%= link_to personnalities_path(category: skill.name), style: "text-decoration: none" do %>
-    <div class="d-flex flex-column text-center personnality-infos" data-controller="clicked" data-clicked-target="btn" data-action="click->clicked#meurtrefilter">
+    <div class="d-flex flex-column text-center personnality-infos <%= 'rose' if params[:category] == skill.name %>">
       <div class="icone-list-pers"> <i class="<%= skill.icone %>"></i></div>
       <div class="name-list-pers"><%= skill.name %></div>
     </div>
