@@ -23,7 +23,28 @@
   animation: blink .6s linear infinite alternate;
 }
 
+.typing {
+  position: absolute;
+  top: 49vh;
+  left:50vw
+}
+
+
 #sentence {
   color: white;
-  font-size: 1rem;
+  font-size: 20px;
+  line-height: 30px;
+  padding-right: 5px;
+  text-align: left;
+  width: 550px;
+  text-align: center;
+  text-shadow: 0px 1px 11px #111;
+  margin-bottom: 20px;
+}
+
+#feature-text {
+  line-height: 30px;
+  font-size: 40px;
+  text-align: left;
+  font-weight:300;
 }

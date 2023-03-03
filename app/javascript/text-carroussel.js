@@ -1,9 +1,13 @@
 console.log("Hello from app/javascript/packs/text-carroussel.js")
 
 const carouselText = [
-  { text: "Meurtre", color: "#FF0057" },
   { text: "Fraude fiscale", color: "#FF0057" },
+  { text: "Meurtre", color: "#FF0057" },
   { text: "Violence conjugale", color: "#FF0057" }
+  { text: "Injures publiques", color: "#FF0057" }
+  { text: "Drogue", color: "#FF0057" }
+  { text: "Ivresse", color: "#FF0057" }
+  { text: "Pédophilie", color: "#FF0057" }
 ];
 document.addEventListener("DOMContentLoaded", async function(event) {
   carousel(carouselText, "#feature-text")
@@ -14,12 +18,12 @@ document.addEventListener("DOMContentLoaded", async function(event) {
 // });
 
 async function typeSentence(sentence, eleRef, delay = 100) {
-  const letters = sentence.split();
+  const letters = sentence.split("");
   let i = 0;
   while (i < letters.length) {
     await waitForMs(delay);
     const element = document.querySelector(eleRef);
-    element.innerText += letters[i];
+    element.innerText += letters[i] + "\u00a0";
     i++;
   }
   return;
@@ -31,7 +35,7 @@ async function deleteSentence(eleRef) {
   const letters = sentence.split("");
   let i = 0;
   while (letters.length > 0) {
-    await waitForMs(100);
+    await waitForMs(50);
     letters.pop();
     const element = document.querySelector(eleRef);
     // element.innerHTML = letters.join("");
@@ -44,7 +48,7 @@ async function carousel(carouselList, eleRef) {
   while (true) {
     updateFontColor(eleRef, carouselList[i].color);
     await typeSentence(carouselList[i].text, eleRef);
-    await waitForMs(1500);
+    await waitForMs(500);
     await deleteSentence(eleRef);
     await waitForMs(500);
     i++;
