@@ -30,6 +30,7 @@ class PersonnalitiesController < ApplicationController
 
   def create
     @personnality = Personnality.new(personnality_params)
+    @skills = params[:personnality][:skill_ids]
     @personnality.user = current_user
     @skills.each do |skill|
       unless skill == "" || skill.length > 4
