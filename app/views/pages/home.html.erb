@@ -1,30 +1,43 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
-  <div class="container">
-    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
-    <p>Change your life and learn to code at one of our campuses around the world.</p>
-    <a class="btn btn-flat" href="#">Apply now</a>
+<div class="homepagefull">
+</div>
+
+<div class="container px-3 py-5">
+  <div class="d-flex flex-row align-items-center">
+    <div class="d-flex col-4"><%= image_tag "logo.png", style:" height:200px" %></div>
+      <div class="flex-grow-1 col-8" id="presentation">
+        <p>Nous sommes des avocats chevronnés avec plus de 20 ans d’expérience dans la gestion de cas sensibles pour des clients de haut niveau. Notre passion pour le droit et notre engagement inébranlable à rechercher la justice pour nos clients nous ont valu une réputation de professionnel juridique fiable et compétent.
+        </p>
+        <p>Tout au long de notre carrière, nous avons eu l’honneur de représenter des personnes de tous horizons, notamment des célébrités, des dirigeants d’entreprise et des politiciens. Nos clients comptent sur notre expertise pour naviguer dans des questions juridiques complexes, protéger leur réputation et leurs actifs et obtenir le meilleur résultat possible dans leurs affaires.
+        Nous comprenons que les problèmes juridiques peuvent être stressants et écrasants, surtout pour ceux qui sont sous les feux de la rampe. C’est pourquoi nous donnons la priorité à la communication ouverte, à l’attention aux détails et au service personnalisé pour chacun de nos clients. Nous nous efforçons de construire des relations solides avec nos clients basées sur la confiance, le respect et la compréhension mutuelle.
+        </p>
+        <p>
+        Que vous soyez confronté à des accusations criminelles, à des litiges civils ou à d’autres défis juridiques, nous sommes là pour vous aider. Nous proposons une large gamme de services juridiques adaptés aux besoins et objectifs uniques de nos clients. De l’évaluation du cas et du développement de stratégies à la négociation et au contentieux, nous sommes déterminés à fournir un soutien juridique complet à chaque étape du processus.
+        Nous avons hâte de travailler avec vous pour obtenir la justice et la tranquillité d’esprit que vous méritez.
+        </p>
+      </div>
   </div>
 </div>
-<div class="container py-2" style="z-index:2; position:relative">
 
-  <h2 class="slogan">Ils ont évités la prison, alors pourquoi pas vous ?</h2>
-
-  <h2 class="slogan">Ils ont évités la prison, alors pourquoi pas vous ?</h2>
-  <%= render "personnalities/list-skills" %>
-<%= render "shared/personnality_card" %>
-  <%= render "personnalities/list-skills" %>
-<%= render "shared/personnality_card" %>
-
-
-<p>lorem ipsum</p>
-
+<div class="container px-3 py-5">
+  <div id="carouselExample" class="carousel slide">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="..." class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="..." class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="..." class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
 </div>
-
-<%#
-<div id="background-video"
-  style="background-image:url('https://res.cloudinary.com/dkzycxs88/image/upload/v1677780093/development/y14lnebieybc1i0z0pe59nwah9yg.gif');width: 100vw;
-    height: 100vh;
-    background-repeat: no-repeat;
-    background-size: cover;"
->
-</div> %>
+</div>
