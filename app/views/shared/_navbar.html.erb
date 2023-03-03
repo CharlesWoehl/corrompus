@@ -14,7 +14,9 @@
 
     <div class="collapse navbar-collapse button-rounded " id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-
+        <li class="nav-item active">
+          <%= link_to "Nos personnalités | ", personnalities_path, class: "nav-link" %>
+        </li>
         <% if user_signed_in? %>
           <li class="nav-item dropdown-connect">
             <p class="name">Bienvenue <%= current_user.firstname %> <%= current_user.lastname %></p>
