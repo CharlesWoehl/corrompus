@@ -73,11 +73,11 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 10px;
+  border-radius: 7px;
   transition: 0.3s;
 }
 .card-trip:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   transition: 0.3s;
   box-shadow: 0 0 30px rgba(0,0,0,0.4);
 }
@@ -123,11 +123,12 @@
 }
 
 .card-trip .card-trip-infos{
-  padding: 16px;
+  padding: 16px 16px 10px 16px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  width: 118%;
 }
 
 .card-trip-infos .card-trip-user {
@@ -193,24 +194,22 @@ color: #333;
 
   .card-product .card-product-infos {
     padding: 16px;
+
   }
 
   .personnality-infos-card .personnality-name {
-    position: absolute;
-    bottom: 116Px;
-    left: 7px;
-    background-color: #f0f0f0;
-    opacity: 0.9;
     font-size: 19px;
-    padding: 9px 10px 6px 10px;
+    padding: 9px 10px 0px 10px;
     border-radius: 25px;
     color: black;
     font-family: sans-serif;
+    margin-bottom: 0px;
   }
 
   .card-trip-rating {
     position: relative;
     bottom: 66px;
+    left: -54px;
     padding: 10px 10px 10px 5px;
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 20px;
@@ -218,6 +217,18 @@ color: #333;
   }
 
   .price-text {
-    font-size: 30px;
+    font-size: 24px;
     color: #111;
+    padding-left: 10px;
+    padding-top: 5px;
+    }
+
+    .description-card {
+      width: 100%;
+      text-align: left;
+      font-size: 12px;
+    }
+
+    .personnality-infos-card {
+      width: 100%;
     }
