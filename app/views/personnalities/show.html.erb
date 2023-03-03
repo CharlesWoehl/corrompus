@@ -16,17 +16,19 @@
 
 
 
-<% @joinskills.where(personnality_id: @personnality.id).each do |join| %>
- <div class="d-flex flex-column text-center personnality-infos">
-        <div class="icone-list-pers rose"> <i class="<%= join.skill.icone %>"></i></div>
-        <div class="name-list-pers"><%= join.skill.name %></div>
-      </div>
-<% end %>
-<% @joinskills.where.not(personnality_id: @personnality.id).each do |join| %>
- <div class="d-flex flex-column text-center personnality-infos">
-        <div class="icone-list-pers"> <i class="<%= join.skill.icone %>"></i></div>
-        <div class="name-list-pers"><%= join.skill.name %></div>
-      </div>
+
+<% @skills.each do |skill| %>
+  <% if @personnality_skills.include?(skill) %>
+    <div class="d-flex flex-column text-center personnality-infos">
+      <div class="icone-list-pers rose"> <i class="<%= skill.icone %>"></i></div>
+      <div class="name-list-pers"><%= skill.name %></div>
+    </div>
+  <% else %>
+    <div class="d-flex flex-column text-center personnality-infos">
+        <div class="icone-list-pers"> <i class="<%= skill.icone %>"></i></div>
+        <div class="name-list-pers"><%= skill.name %></div>
+    </div>
+  <% end %>
 <% end %>
 
 </div>
