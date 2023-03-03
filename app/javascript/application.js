@@ -2,4 +2,5 @@
 import "@hotwired/turbo-rails"
 import "bootstrap"
 import "./controllers"
+import "./text-carroussel"
 console.log("Hello from app/javascript/application.js")
