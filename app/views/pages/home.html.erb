@@ -1,6 +1,30 @@
-<div class="container py-2">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
+    <p>Change your life and learn to code at one of our campuses around the world.</p>
+    <a class="btn btn-flat" href="#">Apply now</a>
+  </div>
+</div>
+<div class="container py-2" style="z-index:2; position:relative">
+
+  <h2 class="slogan">Ils ont évités la prison, alors pourquoi pas vous ?</h2>
+
   <h2 class="slogan">Ils ont évités la prison, alors pourquoi pas vous ?</h2>
   <%= render "personnalities/list-skills" %>
-  <%= render "shared/personnality_card" %>
+<%= render "shared/personnality_card" %>
+  <%= render "personnalities/list-skills" %>
+<%= render "shared/personnality_card" %>
+
+
+<p>lorem ipsum</p>
 
 </div>
+
+<%#
+<div id="background-video"
+  style="background-image:url('https://res.cloudinary.com/dkzycxs88/image/upload/v1677780093/development/y14lnebieybc1i0z0pe59nwah9yg.gif');width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;"
+>
+</div> %>

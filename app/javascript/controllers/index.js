@@ -4,8 +4,8 @@
 
 import { application } from "./application"
 
-import ClickedController from "./clicked_controller"
-application.register("clicked", ClickedController)
+import NavbarController from "./navbar_controller"
+application.register("navbar", NavbarController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
