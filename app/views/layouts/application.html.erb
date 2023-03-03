@@ -12,16 +12,22 @@
   </head>
 
   <body>
+  <% unless current_page?(root_path) %>
     <div id="page">
+  <% end %>
       <%= render "shared/navbar" %>
+  <% unless current_page?(root_path) %>
       <div id="content">
         <div class="container py-4">
+  <% end %>
           <%= yield %>
+  <% unless current_page?(root_path) %>
          <%= render "shared/flashes" %>
 
         </div>
       </div>
       <%= render "shared/footer" %>
     </div>
+  <% end %>
   </body>
 </html>

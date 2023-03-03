@@ -3,28 +3,25 @@
   // background: white;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
-  background-color: transparent;
 transition: 0.5s background-color ease;
 height: 67px;
 }
-
-
-
-.navbar-lewagon-white {
-  justify-content: space-between;
-  background: white;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  z-index: 100;
+.transparent {
   background-color: transparent;
-transition: 0.5s background-color ease;
-height: 67px;
+  box-shadow: none;
+}
+
+
+.white {
+  background: white;
+
 }
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 200px;
+  height: 60px;
 }
 .navbar-nav .dropdown-menu {
   position: absolute;
