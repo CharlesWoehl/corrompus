@@ -3,10 +3,10 @@ console.log("Hello from app/javascript/packs/text-carroussel.js")
 const carouselText = [
   { text: "Fraude fiscale", color: "#FF0057" },
   { text: "Meurtre", color: "#FF0057" },
-  { text: "Violence conjugale", color: "#FF0057" }
-  { text: "Injures publiques", color: "#FF0057" }
-  { text: "Drogue", color: "#FF0057" }
-  { text: "Ivresse", color: "#FF0057" }
+  { text: "Violence conjugale", color: "#FF0057" },
+  { text: "Injures publiques", color: "#FF0057" },
+  { text: "Drogue", color: "#FF0057" },
+  { text: "Ivresse", color: "#FF0057" },
   { text: "Pédophilie", color: "#FF0057" }
 ];
 document.addEventListener("DOMContentLoaded", async function(event) {
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async function(event) {
 //   carousel(carouselText, "#feature-text");
 // });
 
-async function typeSentence(sentence, eleRef, delay = 100) {
+async function typeSentence(sentence, eleRef, delay = 100 ) {
   const letters = sentence.split("");
   let i = 0;
   while (i < letters.length) {
